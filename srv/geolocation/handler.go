@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"fmt"
 	"github.com/phuonghau98/walkie3/srv/geolocation/proto/geolocation"
 	"github.com/phuonghau98/walkie3/srv/user/proto/user"
 	"go.mongodb.org/mongo-driver/bson"
@@ -46,7 +45,6 @@ func (s *Service) GetLocation (ctx context.Context, empty *geolocation.Empty) (*
 	if err != nil {
 		return nil, err
 	}
-	fmt.Println(foundUser.Id)
 	var result geolocation.LocationResponse
 	conditions := bson.D{{
 		"$or", bson.A{
