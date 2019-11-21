@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package message;
+
+service MessageService {
+    rpc Send (Message) returns (Empty) {}
+    rpc Receive (MessagesRequest) returns (Messages) {}
+    rpc ReceiveLastMessages (LastMessagesRequest) returns (LastMessagesResponse) {}
+}
+
+message LastMessagesRequest {
+    repeated string userIDs = 1;
+}
+
+message LastMessagesResponse {
+    repeated Message messages = 1;
+}
+
+message Message {
+    string id = 1;
+    string sender = 2;
+    string receiver = 3;
+    string content = 4;
+    bool isRead = 5;
+    int64 createdAt =  6;
+}
+
+message MessagesRequest {
+    int64 milestone = 1;
+}
+
+message Messages {
+    repeated Message messages = 1;
+}
+
+message Empty {}

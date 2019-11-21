@@ -1,0 +1,13 @@
+type: google.api.Service
+config_version: 3
+
+http:
+  rules:
+    - selector: geolocation.GeolocationService.UpdateLocation
+      post: /geolocation/update
+      body: "*"
+    - selector: geolocation.GeolocationService.GetLocation
+      get: /geolocation/get
+    - selector: geolocation.GeolocationService.ShareLocation
+      post: /geolocation/share
+      body: "*"

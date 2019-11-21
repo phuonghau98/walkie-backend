@@ -1,0 +1,14 @@
+type: google.api.Service
+config_version: 3
+
+http:
+  rules:
+    - selector: message.MessageService.Send
+      post: /message/send
+      body: "*"
+    - selector: message.MessageService.Receive
+      post: /message/receive
+      body: "*"
+    - selector: message.MessageService.ReceiveLastMessages
+      post: /message/lastmessages
+      body: "*"

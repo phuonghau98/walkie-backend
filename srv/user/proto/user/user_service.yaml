@@ -1,0 +1,15 @@
+type: google.api.Service
+config_version: 3
+
+http:
+  rules:
+    - selector: user.UserService.Authenticate
+      post: /user/authenticate
+      body: "*"
+    - selector: user.UserService.CreateUser
+      post: /user/create
+      body: "*"
+    - selector: user.UserService.GetUserProfile
+      get: /user/getprofile
+    - selector: user.UserService.GetAllUsers
+      get: /user/userlist

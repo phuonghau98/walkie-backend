@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package user;
+
+service UserService {
+    rpc Authenticate(User) returns (TokenInfo) {}
+    rpc CreateUser(User) returns (User) {}
+    rpc GetUserProfile(Empty) returns (UserProfile) {}
+    rpc GetUserFromToken(TokenInfo) returns (User) {}
+    rpc GetAllUsers(Empty) returns (UserList) {}
+}
+
+message Empty {}
+
+message User {
+    string id = 1;
+    string email = 2;
+    string password = 3;
+    string firstName = 4;
+    string lastName = 5;
+}
+
+message UserList {
+    repeated User users = 1;
+}
+
+message TokenInfo {
+    string token = 1;
+    bool isValid = 2;
+}
+
+message Response {
+    string msg = 1;
+}
+
+message UserProfile {
+    string email = 1;
+    string firstName = 2;
+    string lastName = 3;
+    string id = 4;
+}
